@@ -1,4 +1,4 @@
-const { DataTypes } = require('Sequelize');
+const { DataTypes } = require('sequelize');
 const db = require('../config/db');
 const Proyectos = require('./Proyectos'); //importamos el modelo Proyectos para relacionarlo con los usuarios
 const bcrypt = require('bcrypt-nodejs');
