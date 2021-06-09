@@ -1,5 +1,5 @@
 //Requerimos el ORM Sequelize
-const { Sequelize } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 //Requerimos el archivo de configuracion del Orm Sequelize
 const db = require('../config/db');
@@ -7,17 +7,17 @@ const Proyectos = require('./Proyectos'); //importamos el modelo Proyectos para 
 //Definimos el modelo Tareas
 const Tareas = db.define('tareas', {
     id:{
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     
     tarea:{
-        type: Sequelize.STRING(100)
+        type: DataTypes.STRING(100)
     },
     
     estado:{
-        type: Sequelize.INTEGER(1)
+        type: DataTypes.INTEGER(1)
     }
 });
 // Creamos claves foraneas para vincular Tareas y proyectos 
