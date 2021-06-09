@@ -1,16 +1,16 @@
-const Sequelize = require('Sequelize');
+const { DataTypes } = require('Sequelize');
 const db = require('../config/db');
 const Proyectos = require('./Proyectos'); //importamos el modelo Proyectos para relacionarlo con los usuarios
 const bcrypt = require('bcrypt-nodejs');
 
 const Usuarios = db.define('usuarios', {
     id: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     email: {
-        type: Sequelize.STRING(60),
+        type: DataTypes.STRING(60),
         allowNull: false, //campo no permitido el vacio 
         validate: {
             isEmail: {
@@ -26,7 +26,7 @@ const Usuarios = db.define('usuarios', {
         }
     },
     password: {
-        type: Sequelize.STRING(60),
+        type: DataTypes.STRING(60),
         allowNull: false, //campo no permitido el vacio
         validate: {
             notEmpty: {
@@ -35,11 +35,11 @@ const Usuarios = db.define('usuarios', {
         }
     },
     activo: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         defaultValue: 0
     }, 
-    token: Sequelize.STRING,
-    expiracion: Sequelize.DATE    
+    token: DataTypes.STRING,
+    expiracion: DataTypes.DATE    
 }, {
     hooks: {
         beforeCreate(usuario) {
