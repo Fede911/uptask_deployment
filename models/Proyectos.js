@@ -1,5 +1,5 @@
 //Requerimos el ORM Sequelize
-const { Sequelize } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 //Requerimos SLUG para formatear la url
 const slug = require('slug');
@@ -14,17 +14,17 @@ const db = require('../config/db');
 //Definimos el modelo Proyectos
 const Proyectos = db.define('proyectos', {
     id:{
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
     
     nombre:{
-        type: Sequelize.STRING(100),
+        type: DataTypes.STRING(100),
     },
     
     url:{
-        type: Sequelize.STRING
+        type: DataTypes.STRING
     }
 }, {
     hooks: {
